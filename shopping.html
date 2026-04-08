@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Website</title>
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+  url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f') center/cover;
+  color:white;
+  text-align:center;
+}
+header{
+  padding:20px;
+  background:rgba(0,0,0,0.5);
+}
+.products{
+  padding:40px;
+}
+.card{
+  display:inline-block;
+  background:white;
+  color:black;
+  margin:15px;
+  padding:10px;
+  border-radius:10px;
+  width:200px;
+  transition:0.3s;
+}
+.card:hover{
+  transform:scale(1.05);
+}
+.card img{
+  width:100%;
+  border-radius:10px;
+}
+button{
+  padding:8px 15px;
+  background:orange;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+#orderBox{
+  display:none;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:white;
+  color:black;
+  padding:20px;
+  border-radius:10px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ShopEasy 🛍️</h1>
+  <p>Best Deals Everyday</p>
+</header>
+
+<section class="products">
+
+  <div class="card">
+    <img src="shoe.webp"
+    <p>₹999</p>
+    <button onclick="order('Shoes')">Buy</button>
+  </div>
+
+  <div class="card">
+    <img src="watch.jpg">
+    <h3>Watch</h3>
+    <p>₹1499</p>
+    <button onclick="order('Watch')">Buy</button>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
+    <h3>Mobile</h3>
+    <p>₹9999</p>
+    <button onclick="order('Mobile')">Buy</button>
+  </div>
+  <div class="card">
+    <img src="led tv.jpg"
+    <h3>LED TV</h3>
+    <p>₹45000</p>
+    <button onclick="order('led tv')">Buy</button>
+    
+  </div>
+  <div class="card">
+    <img src="fridge.webp"
+    <h3>Fridge</h3>
+    <p>₹100000</p>
+    <button onclick="order('fridge')">Buy</button>
+  </div>
+  <div class="card">
+    <img src="dressing table.jpg"
+    <h3>Dressing table</h3>
+    <p>₹30000</p>
+    <button onclick="order('dressing table')">Buy</button>
+  </div>
+  <div class="card">
+    <img src="washing machine.jpg"
+    <h3>Washing machine</h3>
+    <p>₹75000</p>
+    <button onclick="order('washing machine')">Buy</button>
+  </div>
+
+</section>
+
+<div id="orderBox">
+  <h3 id="productName"></h3>
+  <input type="text" id="name" placeholder="Your Name"><br><br>
+  <input type="text" id="address" placeholder="Address"><br><br>
+  <button onclick="placeOrder()">Place Order</button>
+</div>
+
+<script>
+function order(product){
+  document.getElementById('orderBox').style.display='block';
+  document.getElementById('productName').innerText = "Order: " + product;
+}
+
+function placeOrder(){
+  let name = document.getElementById('name').value;
+  let address = document.getElementById('address').value;
+
+  if(name=="" || address==""){
+    alert("Please fill details");
+  }else{
+    alert("Order placed successfully! 🎉");
+    document.getElementById('orderBox').style.display='none';
+  }
+}
+</script>
+
+</body>
+</html>
